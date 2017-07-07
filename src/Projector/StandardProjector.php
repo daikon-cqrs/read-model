@@ -3,7 +3,7 @@
 namespace Daikon\ReadModel\Projector;
 
 use Assert\Assertion;
-use Daikon\Cqrs\EventStore\CommitInterface;
+use Daikon\EventSourcing\EventStore\CommitInterface;
 use Daikon\MessageBus\EnvelopeInterface;
 use Daikon\ReadModel\Repository\RepositoryInterface;
 

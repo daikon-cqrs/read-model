@@ -2,7 +2,7 @@
 
 namespace Daikon\ReadModel\Projector;
 
-use Daikon\Cqrs\Aggregate\AggregatePrefix;
+use Daikon\EventSourcing\Aggregate\AggregatePrefix;
 use Daikon\DataStructure\TypedMapTrait;
 
 final class ProjectorMap implements \IteratorAggregate, \Countable

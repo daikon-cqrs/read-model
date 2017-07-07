@@ -2,7 +2,7 @@
 
 namespace Daikon\ReadModel\Projection;
 
-use Daikon\Cqrs\Aggregate\DomainEventInterface;
+use Daikon\EventSourcing\Aggregate\DomainEventInterface;
 
 interface ProjectionInterface
 {
