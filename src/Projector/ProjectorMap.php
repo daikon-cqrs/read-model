@@ -2,8 +2,8 @@
 
 namespace Daikon\ReadModel\Projector;
 
-use Daikon\EventSourcing\Aggregate\AggregatePrefix;
 use Daikon\DataStructure\TypedMapTrait;
+use Daikon\EventSourcing\Aggregate\AggregateAlias;
 
 final class ProjectorMap implements \IteratorAggregate, \Countable
 {
@@ -14,11 +14,11 @@ final class ProjectorMap implements \IteratorAggregate, \Countable
         $this->init($projectors, ProjectorInterface::class);
     }
 
-    public function filterByAggregatePrefix(AggregatePrefix $aggregatePrefix)
+    public function filterByAggregateAlias(AggregateAlias $aggregateAlias)
     {
-        $prefix = $aggregatePrefix->toNative();
-        return $this->compositeMap->filter(function ($key) use ($prefix) {
-            return strpos($key, $prefix) === 0;
+        $alias = $aggregateAlias->toNative();
+        return $this->compositeMap->filter(function ($key) use ($alias) {
+            return strpos($key, $alias) === 0;
         });
     }
 }
