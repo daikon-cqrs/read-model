@@ -3,8 +3,7 @@
 namespace Daikon\ReadModel\Projector;
 
 use Assert\Assertion;
-use Daikon\EventSourcing\Aggregate\AggregatePrefix;
-use Daikon\EventSourcing\EventStore\CommitInterface;
+use Daikon\EventSourcing\EventStore\Commit\CommitInterface;
 use Daikon\MessageBus\EnvelopeInterface;
 use Daikon\MessageBus\MessageBusInterface;
 use Daikon\ReadModel\Exception\ReadModelException;
