@@ -4,7 +4,7 @@ namespace Daikon\ReadModel\Projector;
 
 use Assert\Assertion;
 use Daikon\MessageBus\EnvelopeInterface;
-use Daikon\EventSourcing\Aggregate\DomainEventInterface;
+use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
 
 final class RelationProjectorService implements ProjectorServiceInterface
 {

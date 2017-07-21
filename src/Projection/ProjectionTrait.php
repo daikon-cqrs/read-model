@@ -2,7 +2,7 @@
 
 namespace Daikon\ReadModel\Projection;
 
-use Daikon\EventSourcing\Aggregate\DomainEventInterface;
+use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
 use Daikon\ReadModel\Exception\ReadModelException;
 
 trait ProjectionTrait
