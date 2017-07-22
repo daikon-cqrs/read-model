@@ -8,7 +8,7 @@ final class ProjectionMap implements \IteratorAggregate, \Countable
 {
     use TypedMapTrait;
 
-    public function init(array $projections = [])
+    public function __construct(array $projections = [])
     {
         $this->init($projections, ProjectionInterface::class);
     }

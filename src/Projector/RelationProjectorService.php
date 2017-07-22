@@ -20,8 +20,11 @@ final class RelationProjectorService implements ProjectorServiceInterface
         $domainEvent = $envelope->getMessage();
         Assertion::implementsInterface($domainEvent, DomainEventInterface::class);
 
-        //@todo load projection, apply event and persist
-        var_dump($domainEvent);
+        $fqcn = $domainEvent->getAggregateRootClass();
+        $aggregateAlias = $fqcn::getAlias();
+        $aggregateId = $domainEvent->getAggregateId();
+
+        //@todo load projections, apply event and persist
 
         return true;
     }
