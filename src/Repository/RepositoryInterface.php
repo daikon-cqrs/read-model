@@ -4,6 +4,7 @@ namespace Daikon\ReadModel\Repository;
 
 use Daikon\ReadModel\Projection\ProjectionInterface;
 use Daikon\ReadModel\Projection\ProjectionMap;
+use Daikon\ReadModel\Query\QueryInterface;
 
 interface RepositoryInterface
 {
@@ -11,7 +12,7 @@ interface RepositoryInterface
 
     public function findByIds(array $identifiers): ProjectionMap;
 
-    public function search($query, $from, $size): ProjectionMap;
+    public function search(QueryInterface $query, $from, $size): ProjectionMap;
 
     public function persist(ProjectionInterface $projection): bool;
 

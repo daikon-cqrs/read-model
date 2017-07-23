@@ -67,12 +67,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/data-structure.git",
-                "reference": "daf5c2b2310b11129934bad05be7f274e396b42b"
+                "reference": "4fdc6b0712ca992217b47f7cc6f8058e1f91caa3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/data-structure/zipball/daf5c2b2310b11129934bad05be7f274e396b42b",
-                "reference": "daf5c2b2310b11129934bad05be7f274e396b42b",
+                "url": "https://api.github.com/repos/daikon-cqrs/data-structure/zipball/4fdc6b0712ca992217b47f7cc6f8058e1f91caa3",
+                "reference": "4fdc6b0712ca992217b47f7cc6f8058e1f91caa3",
                 "shasum": ""
             },
             "require": {
@@ -109,7 +109,7 @@
                 "list",
                 "map"
             ],
-            "time": "2017-07-22 22:08:25"
+            "time": "2017-07-23 23:36:51"
         },
         {
             "name": "daikon/event-sourcing",
@@ -117,12 +117,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/event-sourcing.git",
-                "reference": "9526cea65b4e8265cb5c8ba2e988cdf8a0c0e6d7"
+                "reference": "d67b9c316f3a8a3d6229ee8d50c201fee4f82445"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/event-sourcing/zipball/9526cea65b4e8265cb5c8ba2e988cdf8a0c0e6d7",
-                "reference": "9526cea65b4e8265cb5c8ba2e988cdf8a0c0e6d7",
+                "url": "https://api.github.com/repos/daikon-cqrs/event-sourcing/zipball/d67b9c316f3a8a3d6229ee8d50c201fee4f82445",
+                "reference": "d67b9c316f3a8a3d6229ee8d50c201fee4f82445",
                 "shasum": ""
             },
             "require": {
@@ -153,7 +153,7 @@
                 "event-sourcing",
                 "immutable"
             ],
-            "time": "2017-07-21 20:30:46"
+            "time": "2017-07-23 23:54:28"
         },
         {
             "name": "daikon/message-bus",
