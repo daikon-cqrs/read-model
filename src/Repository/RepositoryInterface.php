@@ -12,7 +12,7 @@ interface RepositoryInterface
 
     public function findByIds(array $identifiers): ProjectionMap;
 
-    public function search(QueryInterface $query, $from, $size): ProjectionMap;
+    public function search(QueryInterface $query, int $from = null, int $size = null): ProjectionMap;
 
     public function persist(ProjectionInterface $projection): bool;
 
