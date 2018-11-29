@@ -10,8 +10,10 @@ use Daikon\ReadModel\Exception\ReadModelException;
 
 final class ProjectorService implements ProjectorServiceInterface
 {
+    /** @var ProjectorMap */
     private $projectorMap;
 
+    /** @var MessageBusInterface */
     private $messageBus;
 
     public function __construct(ProjectorMap $projectorMap, MessageBusInterface $messageBus)
@@ -22,6 +24,7 @@ final class ProjectorService implements ProjectorServiceInterface
 
     public function handle(EnvelopeInterface $envelope): bool
     {
+        /** @var CommitInterface $commit */
         $commit = $envelope->getMessage();
         Assertion::implementsInterface($commit, CommitInterface::class);
 

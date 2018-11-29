@@ -9,6 +9,7 @@ use Daikon\ReadModel\Repository\RepositoryInterface;
 
 final class StandardProjector implements ProjectorInterface
 {
+    /** @var RepositoryInterface */
     private $repository;
 
     public function __construct(RepositoryInterface $repository)
@@ -18,6 +19,7 @@ final class StandardProjector implements ProjectorInterface
 
     public function handle(EnvelopeInterface $envelope): bool
     {
+        /** @var CommitInterface $commit */
         $commit = $envelope->getMessage();
         Assertion::isInstanceOf($commit, CommitInterface::class);
 

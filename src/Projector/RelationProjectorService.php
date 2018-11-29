@@ -8,6 +8,7 @@ use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
 
 final class RelationProjectorService implements ProjectorServiceInterface
 {
+    /** @var ProjectorMap */
     private $projectorMap;
 
     public function __construct(ProjectorMap $projectorMap)
@@ -17,6 +18,7 @@ final class RelationProjectorService implements ProjectorServiceInterface
 
     public function handle(EnvelopeInterface $envelope): bool
     {
+        /** @var DomainEventInterface $domainEvent */
         $domainEvent = $envelope->getMessage();
         Assertion::implementsInterface($domainEvent, DomainEventInterface::class);
 
