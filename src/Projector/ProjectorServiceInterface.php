@@ -6,4 +6,5 @@ use Daikon\MessageBus\Channel\Subscription\MessageHandler\MessageHandlerInterfac
 
 interface ProjectorServiceInterface extends MessageHandlerInterface
 {
+
 }

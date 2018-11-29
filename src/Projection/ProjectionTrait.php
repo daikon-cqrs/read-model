@@ -9,7 +9,7 @@ trait ProjectionTrait
 {
     private $state;
 
-    public static function fromArray(array $state = [])
+    public static function fromNative($state): ProjectionInterface
     {
         return new static($state);
     }
@@ -24,7 +24,7 @@ trait ProjectionTrait
         return $this->state['aggregateRevision'];
     }
 
-    public function toArray(): array
+    public function toNative(): array
     {
         return $this->state;
     }

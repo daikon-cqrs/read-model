@@ -2,7 +2,9 @@
 
 namespace Daikon\ReadModel\Query;
 
-interface QueryInterface
+use Daikon\Interop\ToNativeInterface;
+
+interface QueryInterface extends ToNativeInterface
 {
-    public function toNative();
+
 }
