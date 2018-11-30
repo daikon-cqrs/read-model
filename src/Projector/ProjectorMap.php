@@ -21,12 +21,4 @@ final class ProjectorMap implements \IteratorAggregate, \Countable
     {
         $this->init($projectors, ProjectorInterface::class);
     }
-
-    public function filterByAggregateAlias(AggregateAlias $aggregateAlias): self
-    {
-        $alias = $aggregateAlias->toNative();
-        return $this->compositeMap->filter(function ($key) use ($alias) {
-            return strpos($key, $alias) === 0;
-        });
-    }
 }

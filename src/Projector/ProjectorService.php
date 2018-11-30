@@ -15,18 +15,19 @@ use Daikon\EventSourcing\EventStore\Commit\CommitInterface;
 use Daikon\MessageBus\EnvelopeInterface;
 use Daikon\MessageBus\MessageBusInterface;
 use Daikon\ReadModel\Exception\ReadModelException;
+use Daikon\ReadModel\Projection\EventProjectorMap;
 
 final class ProjectorService implements ProjectorServiceInterface
 {
-    /** @var ProjectorMap */
-    private $projectorMap;
+    /** @var EventProjectorMap */
+    private $eventProjectorMap;
 
     /** @var MessageBusInterface */
     private $messageBus;
 
-    public function __construct(ProjectorMap $projectorMap, MessageBusInterface $messageBus)
+    public function __construct(EventProjectorMap $eventProjectorMap, MessageBusInterface $messageBus)
     {
-        $this->projectorMap = $projectorMap;
+        $this->eventProjectorMap = $eventProjectorMap;
         $this->messageBus = $messageBus;
     }
 
@@ -38,16 +39,13 @@ final class ProjectorService implements ProjectorServiceInterface
 
         $metadata = $envelope->getMetadata();
         foreach ($commit->getEventLog() as $domainEvent) {
-            $fqcn = $domainEvent->getAggregateRootClass();
-            $aggregateAlias = $fqcn::getAlias();
-            $projectors = $this->projectorMap->filterByAggregateAlias($aggregateAlias);
+            $projectors = $this->eventProjectorMap->findFor($domainEvent);
             foreach ($projectors->getIterator() as $projector) {
                 if (!$projector->handle($envelope)) {
                     throw new ReadModelException('Projector %s failed to handle message.');
                 }
             }
 
-            $metadata = $metadata->with('_aggregate_alias', $aggregateAlias->toNative());
             $this->messageBus->publish($domainEvent, 'events', $metadata);
         }
 
