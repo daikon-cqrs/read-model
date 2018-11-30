@@ -15,7 +15,6 @@ use Daikon\EventSourcing\EventStore\Commit\CommitInterface;
 use Daikon\MessageBus\EnvelopeInterface;
 use Daikon\MessageBus\MessageBusInterface;
 use Daikon\ReadModel\Exception\ReadModelException;
-use Daikon\ReadModel\Projection\EventProjectorMap;
 
 final class ProjectorService implements ProjectorServiceInterface
 {
