@@ -10,7 +10,9 @@ declare(strict_types=1);
 
 namespace Daikon\ReadModel\Projector;
 
+use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
+
 interface EventProjectorInterface
 {
-    public function findFor(DomainEventInterface $event): self;
+    public function matches(DomainEventInterface $event): bool;
 }
