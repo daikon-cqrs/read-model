@@ -15,4 +15,6 @@ use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
 interface EventProjectorInterface
 {
     public function matches(DomainEventInterface $event): bool;
+
+    public function getProjector(): ProjectorInterface;
 }

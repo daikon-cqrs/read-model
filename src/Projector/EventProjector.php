@@ -28,18 +28,15 @@ final class EventProjector implements EventProjectorInterface
     {
         $eventFqcn = get_class($event);
         foreach ($this->eventExpressions as $eventExpression) {
-            // @todo implement
+            if ($eventExpression === $eventFqcn) {
+                return true;
+            }
         }
-        return true;
+        return false;
     }
 
     public function getProjector(): ProjectorInterface
     {
         return $this->projector;
-    }
-
-    public function getEventExpressions(): array
-    {
-        return $this->eventExpressions;
     }
 }
