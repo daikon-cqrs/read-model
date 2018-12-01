@@ -41,7 +41,9 @@ final class ProjectorService implements ProjectorServiceInterface
             $projectors = $this->eventProjectorMap->findFor($domainEvent);
             foreach ($projectors->getIterator() as $projector) {
                 if (!$projector->handle($envelope)) {
-                    throw new ReadModelException('Projector %s failed to handle message.');
+                    throw new ReadModelException(
+                        sprintf('Projector %s failed to handle message.', get_class($projector))
+                    );
                 }
             }
 
