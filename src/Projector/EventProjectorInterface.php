@@ -10,9 +10,11 @@ declare(strict_types=1);
 
 namespace Daikon\ReadModel\Projector;
 
-use Daikon\MessageBus\Channel\Subscription\MessageHandler\MessageHandlerInterface;
+use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
 
-interface ProjectorInterface extends MessageHandlerInterface
+interface EventProjectorInterface
 {
+    public function matches(DomainEventInterface $event): bool;
 
+    public function getProjector(): ProjectorInterface;
 }
