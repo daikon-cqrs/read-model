@@ -41,4 +41,9 @@ final class EventProjector implements EventProjectorInterface
     {
         return $this->projector;
     }
+
+    public function getEventExpressions(): array
+    {
+        return $this->eventExpressions;
+    }
 }
