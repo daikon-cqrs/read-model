@@ -10,15 +10,17 @@ declare(strict_types=1);
 
 namespace Daikon\ReadModel\Projection;
 
+use Daikon\EventSourcing\Aggregate\AggregateIdInterface;
+use Daikon\EventSourcing\Aggregate\AggregateRevision;
 use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
 use Daikon\Interop\FromNativeInterface;
 use Daikon\Interop\ToNativeInterface;
 
 interface ProjectionInterface extends FromNativeInterface, ToNativeInterface
 {
-    public function getAggregateId(): string;
+    public function getAggregateId(): AggregateIdInterface;
 
-    public function getAggregateRevision(): int;
+    public function getAggregateRevision(): AggregateRevision;
 
     public function applyEvent(DomainEventInterface $domainEvent): ProjectionInterface;
 }
