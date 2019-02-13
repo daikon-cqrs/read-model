@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Daikon\ReadModel\Projector;
 
-use Assert\Assertion;
 use Daikon\EventSourcing\EventStore\Commit\CommitInterface;
 use Daikon\MessageBus\EnvelopeInterface;
 use Daikon\ReadModel\Repository\RepositoryInterface;
@@ -25,11 +24,13 @@ final class StandardProjector implements ProjectorInterface
         $this->repository = $repository;
     }
 
-    public function handle(EnvelopeInterface $envelope): bool
+    public function handle(EnvelopeInterface $envelope): void
     {
         /** @var CommitInterface $commit */
         $commit = $envelope->getMessage();
-        Assertion::isInstanceOf($commit, CommitInterface::class);
+        if (!is_a($commit, CommitInterface::class)) {
+            return;
+        }
 
         if ($commit->getStreamRevision()->toNative() === 1) {
             $projection = $this->repository->makeProjection();
@@ -42,6 +43,6 @@ final class StandardProjector implements ProjectorInterface
             $projection = $projection->applyEvent($domainEvent);
         }
 
-        return $this->repository->persist($projection);
+        $this->repository->persist($projection);
     }
 }
