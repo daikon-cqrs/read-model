@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Daikon\ReadModel\Projector;
 
+use Assert\Assertion;
 use Daikon\EventSourcing\EventStore\Commit\CommitInterface;
 use Daikon\MessageBus\EnvelopeInterface;
 use Daikon\MessageBus\MessageBusInterface;
@@ -32,9 +33,7 @@ final class ProjectorService implements ProjectorServiceInterface
     {
         /** @var CommitInterface $commit */
         $commit = $envelope->getMessage();
-        if (!is_a($commit, CommitInterface::class)) {
-            return;
-        }
+        Assertion::implementsInterface($commit, CommitInterface::class);
 
         $metadata = $envelope->getMetadata();
         foreach ($commit->getEventLog() as $domainEvent) {
