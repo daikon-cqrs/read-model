@@ -13,6 +13,7 @@ namespace Daikon\ReadModel\Projector;
 use Assert\Assertion;
 use Daikon\EventSourcing\EventStore\Commit\CommitInterface;
 use Daikon\MessageBus\EnvelopeInterface;
+use Daikon\ReadModel\Projection\ProjectionInterface;
 use Daikon\ReadModel\Repository\RepositoryInterface;
 
 final class StandardProjector implements ProjectorInterface
@@ -38,10 +39,14 @@ final class StandardProjector implements ProjectorInterface
             $projection = $this->repository->findById($aggregateId);
         }
 
+        Assertion::isInstanceOf($projection, ProjectionInterface::class);
+
         foreach ($commit->getEventLog() as $domainEvent) {
+            /** @psalm-suppress PossiblyNullReference */
             $projection = $projection->applyEvent($domainEvent);
         }
 
+        /** @psalm-suppress PossiblyNullArgument */
         $this->repository->persist($projection);
     }
 }

@@ -16,7 +16,7 @@ use Daikon\ReadModel\Query\QueryInterface;
 
 interface RepositoryInterface
 {
-    public function findById(string $identifier): ProjectionInterface;
+    public function findById(string $identifier): ?ProjectionInterface;
 
     public function findByIds(array $identifiers): ProjectionMap;
 
