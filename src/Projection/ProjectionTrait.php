@@ -10,38 +10,24 @@ declare(strict_types=1);
 
 namespace Daikon\ReadModel\Projection;
 
-use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
-use Daikon\ReadModel\Exception\ReadModelException;
+use Daikon\Entity\Entity\EntityInterface;
 
 trait ProjectionTrait
 {
     use EventHandlerTrait;
 
-    private $state;
-
-    /** @param array $state */
-    public static function fromNative($state): ProjectionInterface
-    {
-        return new static($state);
-    }
-
-    public function getAggregateId(): string
-    {
-        return $this->state['aggregateId'];
-    }
-
-    public function getAggregateRevision(): int
-    {
-        return $this->state['aggregateRevision'];
-    }
+    /** @var EntityInterface */
+    private $properties;
 
     public function toNative(): array
     {
-        return $this->state;
+        $data = $this->properties ? $this->properties->toNative() : [];
+        $data[EntityInterface::TYPE_KEY] = static::class;
+        return $data;
     }
 
-    private function __construct(array $state = [])
+    private function __construct(EntityInterface $properties)
     {
-        $this->state = $state;
+        $this->properties = $properties;
     }
 }

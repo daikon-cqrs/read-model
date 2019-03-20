@@ -22,12 +22,12 @@ trait EventHandlerTrait
 
     private function invokeEventHandler(DomainEventInterface $event): ProjectionInterface
     {
-        $handlerName = preg_replace('/Event$/', '', (new \ReflectionClass($event))->getShortName());
+        $handlerName = (new \ReflectionClass($event))->getShortName();
         $handlerMethod = 'when'.ucfirst($handlerName);
         $projection = clone $this;
         $handler = [$projection, $handlerMethod];
         if (!is_callable($handler)) {
-            throw new ReadModelException("Handler '$handlerMethod' is not callable on ".self::class);
+            throw new ReadModelException("Handler '$handlerMethod' is not callable on ".static::class);
         }
         return call_user_func($handler, $event) ?? $projection;
     }
