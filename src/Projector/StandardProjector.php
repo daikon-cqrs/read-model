@@ -32,21 +32,19 @@ final class StandardProjector implements ProjectorInterface
         $commit = $envelope->getMessage();
         Assertion::implementsInterface($commit, CommitInterface::class);
 
-        if ($commit->getStreamRevision()->toNative() === 1) {
+        if ($commit->getStreamRevision()->isInitial()) {
             $projection = $this->repository->makeProjection();
         } else {
-            $aggregateId = $commit->getStreamId()->toNative();
+            $aggregateId = (string)$commit->getStreamId();
             $projection = $this->repository->findById($aggregateId);
         }
 
         Assertion::isInstanceOf($projection, ProjectionInterface::class);
 
         foreach ($commit->getEventLog() as $domainEvent) {
-            /** @psalm-suppress PossiblyNullReference */
             $projection = $projection->applyEvent($domainEvent);
         }
 
-        /** @psalm-suppress PossiblyNullArgument */
         $this->repository->persist($projection);
     }
 }
