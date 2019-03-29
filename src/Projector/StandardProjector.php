@@ -42,9 +42,11 @@ final class StandardProjector implements ProjectorInterface
         Assertion::isInstanceOf($projection, ProjectionInterface::class);
 
         foreach ($commit->getEventLog() as $domainEvent) {
+            /** @psalm-suppress PossiblyNullReference */
             $projection = $projection->applyEvent($domainEvent);
         }
 
+        /** @psalm-suppress PossiblyNullArgument */
         $this->repository->persist($projection);
     }
 }
