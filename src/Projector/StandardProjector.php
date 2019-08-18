@@ -32,7 +32,7 @@ final class StandardProjector implements ProjectorInterface
         $commit = $envelope->getMessage();
         Assertion::implementsInterface($commit, CommitInterface::class);
 
-        if ($commit->getStreamRevision()->isInitial()) {
+        if ($commit->getSequence()->isInitial()) {
             $projection = $this->repository->makeProjection();
         } else {
             $aggregateId = (string)$commit->getStreamId();
