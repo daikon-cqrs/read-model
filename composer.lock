@@ -111,12 +111,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/event-sourcing.git",
-                "reference": "d7d216755c4d22497076e4dbc3de8ea5b3666280"
+                "reference": "1fda9c7142eda6647c53704d7e405f60bef05aeb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/event-sourcing/zipball/d7d216755c4d22497076e4dbc3de8ea5b3666280",
-                "reference": "d7d216755c4d22497076e4dbc3de8ea5b3666280",
+                "url": "https://api.github.com/repos/daikon-cqrs/event-sourcing/zipball/1fda9c7142eda6647c53704d7e405f60bef05aeb",
+                "reference": "1fda9c7142eda6647c53704d7e405f60bef05aeb",
                 "shasum": ""
             },
             "require": {
@@ -149,7 +149,7 @@
                 "event-sourcing",
                 "immutable"
             ],
-            "time": "2019-08-18T21:21:27+00:00"
+            "time": "2019-08-18T21:29:18+00:00"
         },
         {
             "name": "daikon/interop",
