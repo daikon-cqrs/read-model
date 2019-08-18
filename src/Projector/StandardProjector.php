@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the daikon-cqrs/read-model project.
  *
@@ -35,7 +36,7 @@ final class StandardProjector implements ProjectorInterface
         if ($commit->getSequence()->isInitial()) {
             $projection = $this->repository->makeProjection();
         } else {
-            $aggregateId = (string)$commit->getStreamId();
+            $aggregateId = (string) $commit->getAggregateId();
             $projection = $this->repository->findById($aggregateId);
         }
 
