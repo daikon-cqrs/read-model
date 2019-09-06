@@ -16,7 +16,7 @@ final class RepositoryMap implements \IteratorAggregate, \Countable
 {
     use TypedMapTrait;
 
-    public function __construct(array $repositories = [])
+    public function __construct(iterable $repositories = [])
     {
         $this->init($repositories, RepositoryInterface::class);
     }

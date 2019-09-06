@@ -16,7 +16,7 @@ final class ProjectorMap implements \IteratorAggregate, \Countable
 {
     use TypedMapTrait;
 
-    public function __construct(array $projectors = [])
+    public function __construct(iterable $projectors = [])
     {
         $this->init($projectors, ProjectorInterface::class);
     }

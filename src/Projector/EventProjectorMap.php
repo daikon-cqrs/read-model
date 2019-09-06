@@ -17,7 +17,7 @@ final class EventProjectorMap implements \IteratorAggregate, \Countable
 {
     use TypedMapTrait;
 
-    public function __construct(array $eventProjectors = [])
+    public function __construct(iterable $eventProjectors = [])
     {
         $this->init($eventProjectors, EventProjectorInterface::class);
     }

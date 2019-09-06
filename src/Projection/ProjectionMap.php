@@ -16,13 +16,7 @@ final class ProjectionMap implements ProjectionMapInterface
 {
     use TypedMapTrait;
 
-    /** @param array $projections */
-    public static function fromNative($projections): self
-    {
-        return new self($projections);
-    }
-
-    private function __construct(array $projections = [])
+    public function __construct(iterable $projections = [])
     {
         $this->init($projections, ProjectionInterface::class);
     }

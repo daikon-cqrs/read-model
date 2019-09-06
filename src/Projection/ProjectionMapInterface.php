@@ -10,10 +10,9 @@ declare(strict_types=1);
 
 namespace Daikon\ReadModel\Projection;
 
-use Daikon\Interop\FromNativeInterface;
 use Daikon\Interop\ToNativeInterface;
 
-interface ProjectionMapInterface extends FromNativeInterface, ToNativeInterface, \IteratorAggregate, \Countable
+interface ProjectionMapInterface extends ToNativeInterface, \IteratorAggregate, \Countable
 {
 
 }
