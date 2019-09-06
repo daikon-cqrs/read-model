@@ -36,8 +36,8 @@ final class StandardProjector implements ProjectorInterface
         if ($commit->getSequence()->isInitial()) {
             $projection = $this->repository->makeProjection();
         } else {
-            $aggregateId = (string) $commit->getAggregateId();
-            $projection = $this->repository->findById($aggregateId);
+            $aggregateId = (string)$commit->getAggregateId();
+            $projection = $this->repository->findById($aggregateId)->getFirst();
         }
 
         Assertion::isInstanceOf($projection, ProjectionInterface::class);
