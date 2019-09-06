@@ -10,11 +10,9 @@ declare(strict_types=1);
 
 namespace Daikon\ReadModel\Storage;
 
-use Daikon\ReadModel\Projection\ProjectionInterface;
-
 interface StorageAdapterInterface
 {
-    public function read(string $identifier): ?ProjectionInterface;
+    public function read(string $identifier): StorageResultInterface;
 
     public function write(string $identifier, array $data): bool;
 

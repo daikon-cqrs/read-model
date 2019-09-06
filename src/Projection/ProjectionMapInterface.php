@@ -8,11 +8,12 @@
 
 declare(strict_types=1);
 
-namespace Daikon\ReadModel\Storage;
+namespace Daikon\ReadModel\Projection;
 
-use Daikon\ReadModel\Query\QueryInterface;
+use Daikon\Interop\FromNativeInterface;
+use Daikon\Interop\ToNativeInterface;
 
-interface SearchAdapterInterface
+interface ProjectionMapInterface extends FromNativeInterface, ToNativeInterface, \IteratorAggregate, \Countable
 {
-    public function search(QueryInterface $query, int $from = null, int $size = null): StorageResultInterface;
+
 }

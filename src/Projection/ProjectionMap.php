@@ -12,11 +12,17 @@ namespace Daikon\ReadModel\Projection;
 
 use Daikon\DataStructure\TypedMapTrait;
 
-final class ProjectionMap implements \IteratorAggregate, \Countable
+final class ProjectionMap implements ProjectionMapInterface
 {
     use TypedMapTrait;
 
-    public function __construct(array $projections = [])
+    /** @param array $projections */
+    public static function fromNative($projections): self
+    {
+        return new self($projections);
+    }
+
+    private function __construct(array $projections = [])
     {
         $this->init($projections, ProjectionInterface::class);
     }

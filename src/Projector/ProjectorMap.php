@@ -11,7 +11,6 @@ declare(strict_types=1);
 namespace Daikon\ReadModel\Projector;
 
 use Daikon\DataStructure\TypedMapTrait;
-use Daikon\EventSourcing\Aggregate\AggregateAlias;
 
 final class ProjectorMap implements \IteratorAggregate, \Countable
 {
