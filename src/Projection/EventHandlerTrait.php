@@ -29,6 +29,6 @@ trait EventHandlerTrait
         if (!is_callable($handler)) {
             throw new ReadModelException("Handler '$handlerMethod' is not callable on ".static::class);
         }
-        return call_user_func($handler, $event) ?? $projection;
+        return call_user_func($handler, $event);
     }
 }
