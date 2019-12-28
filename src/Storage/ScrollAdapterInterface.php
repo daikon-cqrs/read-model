@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the daikon-cqrs/read-model project.
  *
@@ -6,20 +6,18 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types=1);
-
 namespace Daikon\ReadModel\Storage;
 
 use Daikon\ReadModel\Query\QueryInterface;
 
 interface ScrollAdapterInterface
 {
-    /** @param null|mixed $cursor */
+    /** @param null|string|int $cursor */
     public function scrollStart(QueryInterface $query, int $size = null, $cursor = null): StorageResultInterface;
 
-    /** @param mixed $cursor */
+    /** @param string|int $cursor */
     public function scrollNext($cursor, int $size = null): StorageResultInterface;
 
-    /** @param mixed $cursor */
+    /** @param string|int $cursor */
     public function scrollEnd($cursor): void;
 }

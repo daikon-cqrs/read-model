@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the daikon-cqrs/read-model project.
  *
@@ -6,14 +6,14 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types=1);
-
 namespace Daikon\ReadModel\Projector;
 
+use Countable;
 use Daikon\DataStructure\TypedMapTrait;
 use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
+use IteratorAggregate;
 
-final class EventProjectorMap implements \IteratorAggregate, \Countable
+final class EventProjectorMap implements IteratorAggregate, Countable
 {
     use TypedMapTrait;
 

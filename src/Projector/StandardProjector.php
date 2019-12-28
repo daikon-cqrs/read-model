@@ -1,5 +1,4 @@
-<?php
-
+<?php declare(strict_types=1);
 /**
  * This file is part of the daikon-cqrs/read-model project.
  *
@@ -7,11 +6,10 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types=1);
-
 namespace Daikon\ReadModel\Projector;
 
 use Assert\Assertion;
+use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
 use Daikon\EventSourcing\EventStore\Commit\CommitInterface;
 use Daikon\MessageBus\EnvelopeInterface;
 use Daikon\ReadModel\Projection\ProjectionInterface;
@@ -34,20 +32,21 @@ final class StandardProjector implements ProjectorInterface
         Assertion::implementsInterface($commit, CommitInterface::class);
 
         if ($commit->getSequence()->isInitial()) {
+            /** @var ProjectionInterface $projection */
             $projection = $this->repository->makeProjection();
         } else {
             $aggregateId = (string)$commit->getAggregateId();
+            /** @var ProjectionInterface $projection */
             $projection = $this->repository->findById($aggregateId)->getFirst();
         }
 
         Assertion::isInstanceOf($projection, ProjectionInterface::class);
 
+        /** @var DomainEventInterface $domainEvent */
         foreach ($commit->getEventLog() as $domainEvent) {
-            /** @psalm-suppress PossiblyNullReference */
             $projection = $projection->applyEvent($domainEvent);
         }
 
-        /** @psalm-suppress PossiblyNullArgument */
         $this->repository->persist($projection);
     }
 }

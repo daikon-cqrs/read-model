@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the daikon-cqrs/read-model project.
  *
@@ -6,13 +6,12 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types=1);
-
 namespace Daikon\ReadModel\Projection;
 
+use Countable;
 use Daikon\Interop\ToNativeInterface;
+use IteratorAggregate;
 
-interface ProjectionMapInterface extends ToNativeInterface, \IteratorAggregate, \Countable
+interface ProjectionMapInterface extends IteratorAggregate, Countable, ToNativeInterface
 {
-
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 /**
  * This file is part of the daikon-cqrs/read-model project.
  *
@@ -6,12 +6,11 @@
  * file that was distributed with this source code.
  */
 
-declare(strict_types=1);
-
 namespace Daikon\ReadModel\Projection;
 
 use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
 use Daikon\ReadModel\Exception\ReadModelException;
+use ReflectionClass;
 
 trait EventHandlerTrait
 {
@@ -22,7 +21,7 @@ trait EventHandlerTrait
 
     private function invokeEventHandler(DomainEventInterface $event): ProjectionInterface
     {
-        $handlerName = (new \ReflectionClass($event))->getShortName();
+        $handlerName = (new ReflectionClass($event))->getShortName();
         $handlerMethod = 'when'.ucfirst($handlerName);
         $projection = clone $this;
         $handler = [$projection, $handlerMethod];
