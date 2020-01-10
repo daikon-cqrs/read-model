@@ -8,10 +8,9 @@
 
 namespace Daikon\ReadModel\Projection;
 
-use Countable;
+use Daikon\DataStructure\TypedMapInterface;
 use Daikon\Interop\ToNativeInterface;
-use IteratorAggregate;
 
-interface ProjectionMapInterface extends IteratorAggregate, Countable, ToNativeInterface
+interface ProjectionMapInterface extends TypedMapInterface, ToNativeInterface
 {
 }

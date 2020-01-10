@@ -12,11 +12,9 @@ use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
 
 final class EventProjector implements EventProjectorInterface
 {
-    /** @var array */
-    private $eventExpressions;
+    private array $eventExpressions;
 
-    /** @var ProjectorInterface */
-    private $projector;
+    private ProjectorInterface $projector;
 
     public function __construct(array $eventExpressions, ProjectorInterface $projector)
     {

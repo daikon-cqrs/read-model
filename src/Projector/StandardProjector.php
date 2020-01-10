@@ -17,8 +17,7 @@ use Daikon\ReadModel\Repository\RepositoryInterface;
 
 final class StandardProjector implements ProjectorInterface
 {
-    /** @var RepositoryInterface */
-    private $repository;
+    private RepositoryInterface $repository;
 
     public function __construct(RepositoryInterface $repository)
     {

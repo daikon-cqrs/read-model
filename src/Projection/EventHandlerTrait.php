@@ -9,8 +9,8 @@
 namespace Daikon\ReadModel\Projection;
 
 use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
-use Daikon\ReadModel\Exception\ReadModelException;
 use ReflectionClass;
+use RuntimeException;
 
 trait EventHandlerTrait
 {
@@ -26,7 +26,7 @@ trait EventHandlerTrait
         $projection = clone $this;
         $handler = [$projection, $handlerMethod];
         if (!is_callable($handler)) {
-            throw new ReadModelException("Handler '$handlerMethod' is not callable on ".static::class);
+            throw new RuntimeException("Handler '$handlerMethod' is not callable on ".static::class);
         }
         return call_user_func($handler, $event);
     }

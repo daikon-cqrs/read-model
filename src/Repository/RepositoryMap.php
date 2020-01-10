@@ -8,16 +8,15 @@
 
 namespace Daikon\ReadModel\Repository;
 
-use Countable;
+use Daikon\DataStructure\TypedMapInterface;
 use Daikon\DataStructure\TypedMapTrait;
-use IteratorAggregate;
 
-final class RepositoryMap implements IteratorAggregate, Countable
+final class RepositoryMap implements TypedMapInterface
 {
     use TypedMapTrait;
 
     public function __construct(iterable $repositories = [])
     {
-        $this->init($repositories, RepositoryInterface::class);
+        $this->init($repositories, [RepositoryInterface::class]);
     }
 }

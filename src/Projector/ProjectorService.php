@@ -8,7 +8,7 @@
 
 namespace Daikon\ReadModel\Projector;
 
-use Assert\Assertion;
+use Assert\Assert;
 use Daikon\EventSourcing\EventStore\Commit\CommitInterface;
 use Daikon\MessageBus\EnvelopeInterface;
 use Daikon\MessageBus\MessageBusInterface;
@@ -17,11 +17,9 @@ final class ProjectorService implements ProjectorServiceInterface
 {
     private const EVENTS_CHANNEL = 'events';
 
-    /** @var EventProjectorMap */
-    private $eventProjectorMap;
+    private EventProjectorMap $eventProjectorMap;
 
-    /** @var MessageBusInterface */
-    private $messageBus;
+    private MessageBusInterface $messageBus;
 
     public function __construct(EventProjectorMap $eventProjectorMap, MessageBusInterface $messageBus)
     {
@@ -33,7 +31,7 @@ final class ProjectorService implements ProjectorServiceInterface
     {
         /** @var CommitInterface $commit */
         $commit = $envelope->getMessage();
-        Assertion::implementsInterface($commit, CommitInterface::class);
+        Assert::that($commit)->implementsInterface(CommitInterface::class);
 
         $metadata = $envelope->getMetadata();
         foreach ($commit->getEventLog() as $domainEvent) {

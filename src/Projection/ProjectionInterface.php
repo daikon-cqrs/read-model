@@ -14,5 +14,5 @@ use Daikon\Interop\ToNativeInterface;
 
 interface ProjectionInterface extends FromNativeInterface, ToNativeInterface
 {
-    public function applyEvent(DomainEventInterface $domainEvent): ProjectionInterface;
+    public function applyEvent(DomainEventInterface $domainEvent): self;
 }

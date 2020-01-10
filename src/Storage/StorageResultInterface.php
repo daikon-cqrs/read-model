@@ -22,5 +22,7 @@ interface StorageResultInterface extends IteratorAggregate, Countable
 
     public function getFirst(): ?ProjectionInterface;
 
+    public function getLast(): ?ProjectionInterface;
+
     public function isEmpty(): bool;
 }

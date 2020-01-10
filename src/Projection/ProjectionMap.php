@@ -16,6 +16,15 @@ final class ProjectionMap implements ProjectionMapInterface
 
     public function __construct(iterable $projections = [])
     {
-        $this->init($projections, ProjectionInterface::class);
+        $this->init($projections, [ProjectionInterface::class]);
+    }
+
+    public function toNative(): array
+    {
+        $projections = [];
+        foreach ($this as $key => $projection) {
+            $projections[$key] = $projection->toNative();
+        }
+        return $projections;
     }
 }

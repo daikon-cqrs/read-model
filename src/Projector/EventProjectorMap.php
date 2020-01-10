@@ -8,18 +8,17 @@
 
 namespace Daikon\ReadModel\Projector;
 
-use Countable;
+use Daikon\DataStructure\TypedMapInterface;
 use Daikon\DataStructure\TypedMapTrait;
 use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
-use IteratorAggregate;
 
-final class EventProjectorMap implements IteratorAggregate, Countable
+final class EventProjectorMap implements TypedMapInterface
 {
     use TypedMapTrait;
 
     public function __construct(iterable $eventProjectors = [])
     {
-        $this->init($eventProjectors, EventProjectorInterface::class);
+        $this->init($eventProjectors, [EventProjectorInterface::class]);
     }
 
     public function findFor(DomainEventInterface $event): ProjectorMap

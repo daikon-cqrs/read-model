@@ -8,16 +8,15 @@
 
 namespace Daikon\ReadModel\Projector;
 
-use Countable;
+use Daikon\DataStructure\TypedMapInterface;
 use Daikon\DataStructure\TypedMapTrait;
-use IteratorAggregate;
 
-final class ProjectorMap implements IteratorAggregate, Countable
+final class ProjectorMap implements TypedMapInterface
 {
     use TypedMapTrait;
 
     public function __construct(iterable $projectors = [])
     {
-        $this->init($projectors, ProjectorInterface::class);
+        $this->init($projectors, [ProjectorInterface::class]);
     }
 }
