@@ -9,8 +9,8 @@
 namespace Daikon\ReadModel\Projection;
 
 use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
+use Daikon\Interop\RuntimeException;
 use ReflectionClass;
-use RuntimeException;
 
 trait EventHandlerTrait
 {
