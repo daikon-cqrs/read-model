@@ -8,12 +8,11 @@
 
 namespace Daikon\ReadModel\Projection;
 
-use Daikon\DataStructure\TypedMapTrait;
+use Daikon\DataStructure\TypedMap;
+use Daikon\Interop\ToNativeInterface;
 
-final class ProjectionMap implements ProjectionMapInterface
+final class ProjectionMap extends TypedMap implements ToNativeInterface
 {
-    use TypedMapTrait;
-
     public function __construct(iterable $projections = [])
     {
         $this->init($projections, [ProjectionInterface::class]);

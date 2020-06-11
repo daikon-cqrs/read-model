@@ -8,9 +8,9 @@
 
 namespace Daikon\ReadModel\Projector;
 
-use Assert\Assertion;
 use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
 use Daikon\EventSourcing\EventStore\Commit\CommitInterface;
+use Daikon\Interop\Assertion;
 use Daikon\MessageBus\EnvelopeInterface;
 use Daikon\ReadModel\Projection\ProjectionInterface;
 use Daikon\ReadModel\Repository\RepositoryInterface;
@@ -31,17 +31,18 @@ final class StandardProjector implements ProjectorInterface
         Assertion::implementsInterface($commit, CommitInterface::class);
 
         if ($commit->getSequence()->isInitial()) {
-            /** @var ProjectionInterface $projection */
             $projection = $this->repository->makeProjection();
         } else {
             $aggregateId = (string)$commit->getAggregateId();
-            /** @var ProjectionInterface $projection */
             $projection = $this->repository->findById($aggregateId)->getFirst();
         }
 
         Assertion::isInstanceOf($projection, ProjectionInterface::class);
 
-        /** @var DomainEventInterface $domainEvent */
+        /**
+         * @var ProjectionInterface $projection
+         * @var DomainEventInterface $domainEvent
+         */
         foreach ($commit->getEventLog() as $domainEvent) {
             $projection = $projection->applyEvent($domainEvent);
         }

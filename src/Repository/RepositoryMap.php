@@ -8,13 +8,10 @@
 
 namespace Daikon\ReadModel\Repository;
 
-use Daikon\DataStructure\TypedMapInterface;
-use Daikon\DataStructure\TypedMapTrait;
+use Daikon\DataStructure\TypedMap;
 
-final class RepositoryMap implements TypedMapInterface
+final class RepositoryMap extends TypedMap
 {
-    use TypedMapTrait;
-
     public function __construct(iterable $repositories = [])
     {
         $this->init($repositories, [RepositoryInterface::class]);

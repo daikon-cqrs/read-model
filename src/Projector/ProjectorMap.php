@@ -8,13 +8,10 @@
 
 namespace Daikon\ReadModel\Projector;
 
-use Daikon\DataStructure\TypedMapInterface;
-use Daikon\DataStructure\TypedMapTrait;
+use Daikon\DataStructure\TypedMap;
 
-final class ProjectorMap implements TypedMapInterface
+final class ProjectorMap extends TypedMap
 {
-    use TypedMapTrait;
-
     public function __construct(iterable $projectors = [])
     {
         $this->init($projectors, [ProjectorInterface::class]);

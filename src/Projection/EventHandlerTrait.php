@@ -26,8 +26,10 @@ trait EventHandlerTrait
         $projection = clone $this;
         $handler = [$projection, $handlerMethod];
         if (!is_callable($handler)) {
-            throw new RuntimeException("Handler '$handlerMethod' is not callable on ".static::class);
+            throw new RuntimeException(
+                sprintf("Handler '%s' is not callable on '%s'.", $handlerMethod, static::class)
+            );
         }
-        return call_user_func($handler, $event);
+        return $handler($event);
     }
 }

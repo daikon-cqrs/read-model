@@ -11,12 +11,12 @@ namespace Daikon\ReadModel\Storage;
 use Countable;
 use Daikon\Metadata\MetadataInterface;
 use Daikon\ReadModel\Projection\ProjectionInterface;
-use Daikon\ReadModel\Projection\ProjectionMapInterface;
+use Daikon\ReadModel\Projection\ProjectionMap;
 use IteratorAggregate;
 
 interface StorageResultInterface extends IteratorAggregate, Countable
 {
-    public function getProjectionMap(): ProjectionMapInterface;
+    public function getProjectionMap(): ProjectionMap;
 
     public function getMetadata(): MetadataInterface;
 

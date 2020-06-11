@@ -8,14 +8,11 @@
 
 namespace Daikon\ReadModel\Projector;
 
-use Daikon\DataStructure\TypedMapInterface;
-use Daikon\DataStructure\TypedMapTrait;
+use Daikon\DataStructure\TypedMap;
 use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
 
-final class EventProjectorMap implements TypedMapInterface
+final class EventProjectorMap extends TypedMap
 {
-    use TypedMapTrait;
-
     public function __construct(iterable $eventProjectors = [])
     {
         $this->init($eventProjectors, [EventProjectorInterface::class]);
