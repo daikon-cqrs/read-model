@@ -14,12 +14,14 @@ use ReflectionClass;
 
 trait EventHandlerTrait
 {
-    public function applyEvent(DomainEventInterface $domainEvent): ProjectionInterface
+    /** @return static */
+    public function applyEvent(DomainEventInterface $event): ProjectionInterface
     {
-        return $this->invokeEventHandler($domainEvent);
+        return $this->invokeEventHandler($event);
     }
 
-    private function invokeEventHandler(DomainEventInterface $event): ProjectionInterface
+    /** @return static */
+    protected function invokeEventHandler(DomainEventInterface $event): ProjectionInterface
     {
         $handlerName = (new ReflectionClass($event))->getShortName();
         $handlerMethod = 'when'.ucfirst($handlerName);

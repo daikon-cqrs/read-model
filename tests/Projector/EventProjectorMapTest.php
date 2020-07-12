@@ -9,7 +9,6 @@
 namespace Daikon\Tests\ReadModel\Projector;
 
 use Daikon\EventSourcing\Aggregate\Event\DomainEventInterface;
-use Daikon\ReadModel\Projector\EventProjector;
 use Daikon\ReadModel\Projector\EventProjectorInterface;
 use Daikon\ReadModel\Projector\EventProjectorMap;
 use Daikon\ReadModel\Projector\ProjectorInterface;
@@ -41,11 +40,14 @@ final class EventProjectorMapTest extends TestCase
     {
         $emptyMap = new EventProjectorMap;
         $domainEventMock = $this->createMock(DomainEventInterface::class);
+        /** @var DomainEventInterface $domainEventMock */
         $projectorMap = $emptyMap->findFor($domainEventMock);
         $this->assertCount(0, $projectorMap);
 
         $mockProjector = $this->createMock(ProjectorInterface::class);
-        $mockEventProjector = new EventProjector([get_class($domainEventMock)], $mockProjector);
+        $mockEventProjector = $this->createMock(EventProjectorInterface::class);
+        $mockEventProjector->expects($this->once())->method('matches')->willReturn(true);
+        $mockEventProjector->expects($this->once())->method('getProjector')->willReturn($mockProjector);
         $eventProjectorMap = new EventProjectorMap(['mock' => $mockEventProjector]);
         $projectorMap = $eventProjectorMap->findFor($domainEventMock);
         $this->assertCount(1, $projectorMap);
