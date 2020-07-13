@@ -126,12 +126,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/data-structure.git",
-                "reference": "80b4dd31356e88f19505931b95ff2f2d5dd3aa0b"
+                "reference": "5c1ecd04f5c764d6711472008e79a33a3797f94d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/data-structure/zipball/80b4dd31356e88f19505931b95ff2f2d5dd3aa0b",
-                "reference": "80b4dd31356e88f19505931b95ff2f2d5dd3aa0b",
+                "url": "https://api.github.com/repos/daikon-cqrs/data-structure/zipball/5c1ecd04f5c764d6711472008e79a33a3797f94d",
+                "reference": "5c1ecd04f5c764d6711472008e79a33a3797f94d",
                 "shasum": ""
             },
             "require": {
@@ -167,7 +167,7 @@
                 "map",
                 "vector"
             ],
-            "time": "2020-07-02T17:55:03+00:00"
+            "time": "2020-07-13T18:07:21+00:00"
         },
         {
             "name": "daikon/event-sourcing",
@@ -175,12 +175,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/event-sourcing.git",
-                "reference": "f4c7d5c5fdae775f7e49329faf39707b216eb27c"
+                "reference": "7712b081fbfb6b00c0fd8817874146f88eb0daba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/event-sourcing/zipball/f4c7d5c5fdae775f7e49329faf39707b216eb27c",
-                "reference": "f4c7d5c5fdae775f7e49329faf39707b216eb27c",
+                "url": "https://api.github.com/repos/daikon-cqrs/event-sourcing/zipball/7712b081fbfb6b00c0fd8817874146f88eb0daba",
+                "reference": "7712b081fbfb6b00c0fd8817874146f88eb0daba",
                 "shasum": ""
             },
             "require": {
@@ -213,7 +213,7 @@
                 "event-sourcing",
                 "immutable"
             ],
-            "time": "2020-06-11T19:32:15+00:00"
+            "time": "2020-07-13T21:02:03+00:00"
         },
         {
             "name": "daikon/interop",
@@ -221,12 +221,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/interop.git",
-                "reference": "1d459ebad4062dfc96e27b13bb24aa046eaabdd0"
+                "reference": "66a85ad9b93010134206ee77ee52682348470ef4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/interop/zipball/1d459ebad4062dfc96e27b13bb24aa046eaabdd0",
-                "reference": "1d459ebad4062dfc96e27b13bb24aa046eaabdd0",
+                "url": "https://api.github.com/repos/daikon-cqrs/interop/zipball/66a85ad9b93010134206ee77ee52682348470ef4",
+                "reference": "66a85ad9b93010134206ee77ee52682348470ef4",
                 "shasum": ""
             },
             "require": {
@@ -251,7 +251,7 @@
             ],
             "description": "Interoperability code used across Daikon-CQRS components.",
             "homepage": "https://github.com/daikon-cqrs/interop",
-            "time": "2020-07-05T18:12:30+00:00"
+            "time": "2020-07-13T20:13:39+00:00"
         },
         {
             "name": "daikon/message-bus",
@@ -259,12 +259,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/message-bus.git",
-                "reference": "b7559b8186587b55ee4a06c9823828a748377758"
+                "reference": "43a47ba5292424cdcc189b87533cd056cb495bd0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/message-bus/zipball/b7559b8186587b55ee4a06c9823828a748377758",
-                "reference": "b7559b8186587b55ee4a06c9823828a748377758",
+                "url": "https://api.github.com/repos/daikon-cqrs/message-bus/zipball/43a47ba5292424cdcc189b87533cd056cb495bd0",
+                "reference": "43a47ba5292424cdcc189b87533cd056cb495bd0",
                 "shasum": ""
             },
             "require": {
@@ -296,7 +296,7 @@
                 "message-bus",
                 "messaging"
             ],
-            "time": "2020-06-11T00:12:09+00:00"
+            "time": "2020-07-13T18:32:33+00:00"
         },
         {
             "name": "daikon/metadata",
@@ -304,12 +304,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/metadata.git",
-                "reference": "f92bfd6efc96eee04641c8c384c98e7da0f723de"
+                "reference": "806ad9f9f8b072960daac6f1704d747fef13ddbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/metadata/zipball/f92bfd6efc96eee04641c8c384c98e7da0f723de",
-                "reference": "f92bfd6efc96eee04641c8c384c98e7da0f723de",
+                "url": "https://api.github.com/repos/daikon-cqrs/metadata/zipball/806ad9f9f8b072960daac6f1704d747fef13ddbd",
+                "reference": "806ad9f9f8b072960daac6f1704d747fef13ddbd",
                 "shasum": ""
             },
             "require": {
@@ -339,7 +339,7 @@
                 "enricher",
                 "metadata"
             ],
-            "time": "2020-06-11T00:04:02+00:00"
+            "time": "2020-07-13T18:17:33+00:00"
         },
         {
             "name": "daikon/value-object",
@@ -347,12 +347,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daikon-cqrs/value-object.git",
-                "reference": "3b9fe680bf4c370fcc7e25e4fed479875c3699a5"
+                "reference": "5613e1c54ac37aeb58d13594b7ff6e30202adf78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daikon-cqrs/value-object/zipball/3b9fe680bf4c370fcc7e25e4fed479875c3699a5",
-                "reference": "3b9fe680bf4c370fcc7e25e4fed479875c3699a5",
+                "url": "https://api.github.com/repos/daikon-cqrs/value-object/zipball/5613e1c54ac37aeb58d13594b7ff6e30202adf78",
+                "reference": "5613e1c54ac37aeb58d13594b7ff6e30202adf78",
                 "shasum": ""
             },
             "require": {
@@ -382,7 +382,7 @@
             "keywords": [
                 "value-object"
             ],
-            "time": "2020-07-03T15:24:11+00:00"
+            "time": "2020-07-13T18:28:06+00:00"
         },
         {
             "name": "php-ds/php-ds",
@@ -3845,23 +3845,23 @@
         },
         {
             "name": "theseer/tokenizer",
-            "version": "1.1.3",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/theseer/tokenizer.git",
-                "reference": "11336f6f84e16a720dae9d8e6ed5019efa85a0f9"
+                "reference": "75a63c33a8577608444246075ea0af0d052e452a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theseer/tokenizer/zipball/11336f6f84e16a720dae9d8e6ed5019efa85a0f9",
-                "reference": "11336f6f84e16a720dae9d8e6ed5019efa85a0f9",
+                "url": "https://api.github.com/repos/theseer/tokenizer/zipball/75a63c33a8577608444246075ea0af0d052e452a",
+                "reference": "75a63c33a8577608444246075ea0af0d052e452a",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "ext-tokenizer": "*",
                 "ext-xmlwriter": "*",
-                "php": "^7.0"
+                "php": "^7.2 || ^8.0"
             },
             "type": "library",
             "autoload": {
@@ -3881,7 +3881,13 @@
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
-            "time": "2019-06-13T22:48:21+00:00"
+            "funding": [
+                {
+                    "url": "https://github.com/theseer",
+                    "type": "github"
+                }
+            ],
+            "time": "2020-07-12T23:59:07+00:00"
         },
         {
             "name": "vimeo/psalm",

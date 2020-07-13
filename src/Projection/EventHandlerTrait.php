@@ -15,18 +15,18 @@ use ReflectionClass;
 trait EventHandlerTrait
 {
     /** @return static */
-    public function applyEvent(DomainEventInterface $event): ProjectionInterface
+    public function applyEvent(DomainEventInterface $event): self
     {
-        return $this->invokeEventHandler($event);
+        $projection = clone $this;
+        return $projection->invokeEventHandler($event);
     }
 
     /** @return static */
-    protected function invokeEventHandler(DomainEventInterface $event): ProjectionInterface
+    protected function invokeEventHandler(DomainEventInterface $event): self
     {
         $handlerName = (new ReflectionClass($event))->getShortName();
         $handlerMethod = 'when'.ucfirst($handlerName);
-        $projection = clone $this;
-        $handler = [$projection, $handlerMethod];
+        $handler = [$this, $handlerMethod];
         if (!is_callable($handler)) {
             throw new RuntimeException(
                 sprintf("Handler '%s' is not callable on '%s'.", $handlerMethod, static::class)
