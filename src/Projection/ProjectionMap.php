@@ -20,10 +20,8 @@ final class ProjectionMap extends TypedMap implements ToNativeInterface
 
     public function toNative(): array
     {
-        $projections = [];
-        foreach ($this as $key => $projection) {
-            $projections[$key] = $projection->toNative();
-        }
-        return $projections;
+        return $this->map(
+            fn(string $key, ProjectionInterface $projection): array => $projection->toNative()
+        )->unwrap();
     }
 }

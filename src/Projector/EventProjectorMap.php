@@ -21,9 +21,9 @@ final class EventProjectorMap extends TypedMap
     public function findFor(DomainEventInterface $event): ProjectorMap
     {
         $projectors = [];
-        foreach ($this as $projectorKey => $eventProjector) {
+        foreach ($this as $key => $eventProjector) {
             if ($eventProjector->matches($event)) {
-                $projectors[$projectorKey] = $eventProjector->getProjector();
+                $projectors[$key] = $eventProjector->getProjector();
             }
         }
         return new ProjectorMap($projectors);

@@ -21,7 +21,6 @@ trait EventHandlerTrait
         return $projection->invokeEventHandler($event);
     }
 
-    /** @return static */
     protected function invokeEventHandler(DomainEventInterface $event): self
     {
         $handlerName = (new ReflectionClass($event))->getShortName();
