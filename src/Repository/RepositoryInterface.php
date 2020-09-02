@@ -20,6 +20,8 @@ interface RepositoryInterface
 
     public function search(QueryInterface $query, int $from = null, int $size = null): StorageResultInterface;
 
+    public function walk(QueryInterface $query, callable $callback, int $size = null): void;
+
     public function persist(ProjectionInterface $projection): bool;
 
     public function makeProjection(): ProjectionInterface;
